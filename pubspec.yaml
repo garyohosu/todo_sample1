@@ -37,7 +37,3 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-  
-  # Assets for the app icon
-  assets:
-    - assets/icons/app_icon.png
