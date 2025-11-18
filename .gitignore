@@ -47,8 +47,8 @@ app.*.map.json
 *.hive
 *.lock
 
-# Generated files
-*.g.dart
+# Generated files (commented out to include in version control)
+# *.g.dart
 *.freezed.dart
 *.mocks.dart
 
