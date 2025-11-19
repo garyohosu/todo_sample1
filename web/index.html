@@ -6,11 +6,39 @@
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="Flutter ToDo App">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Flutter ToDo App">
   <link rel="icon" type="image/png" href="favicon.png"/>
   <title>Flutter ToDo App</title>
   <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="favicon.png">
+
+  <script>
+    // This script installs service workers or polyfills for browsers
+    // that support them.
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('flutter-first-frame', function () {
+        navigator.serviceWorker.register('flutter_service_worker.js');
+      });
+    }
+  </script>
+
+  <!-- Placeholder for Flutter Web app initialization -->
+  <script src="flutter.js" defer></script>
 </head>
 <body>
-  <script src="flutter.js" defer></script>
+  <script>
+    window.addEventListener('load', function(ev) {
+      // Download main.dart.js
+      _loadMainDartJs();
+    });
+    function _loadMainDartJs() {
+      var scriptTag = document.createElement('script');
+      scriptTag.src = 'main.dart.js';
+      scriptTag.type = 'application/javascript';
+      document.body.append(scriptTag);
+    }
+  </script>
 </body>
 </html>
