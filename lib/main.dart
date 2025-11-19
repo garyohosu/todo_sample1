@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -9,8 +10,14 @@ import 'screens/home_screen.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   
-  // Initialize Hive
-  await Hive.initFlutter();
+  // Initialize Hive - use different method for Web
+  if (kIsWeb) {
+    // For Web platform
+    await Hive.initFlutter();
+  } else {
+    // For mobile/desktop platforms
+    await Hive.initFlutter();
+  }
   
   // Register adapters
   Hive.registerAdapter(TodoItemAdapter());
